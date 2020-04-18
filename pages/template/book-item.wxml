@@ -1,0 +1,24 @@
+<template name="bookItem">
+  <view class="item-head">
+    <!--<view class="post-title-before"></view>-->
+    <p class="post-title" hover-class="link-hover">{{bookObj.bookName}}</p>
+    <view class="project-price">作者：
+      <label>{{bookObj.author}}</label>
+    </view>
+  </view>
+  <view class="project-img">
+    <image src="{{bookObj.coverImage || 'https://book.somethingwhat.com/images/wgwx_book.png'}}"></image>
+  </view>
+  <view class="item-body">
+    <view class="project-title">类型：
+      <label>{{bookObj.bookClassify}}</label>
+    </view>
+    <view class="project-title">更新时间：
+      <label>{{bookObj.last_Update_Time}}</label>
+    </view>
+    <view class="project-title">最新章节：
+      <label class="link" style='color:#000;' hover-class="link-hover" bindtap="onRedirectToChapter" data-idx="{{bookObj.idx}}">{{bookObj.last_Update_ChapterName}}</label>
+    </view>
+    <view class="project-desc">{{bookObj.bookIntro}}</view>
+  </view>
+</template>

@@ -1,0 +1,3 @@
+.section{padding:5%;width:90%;font-size:14px;}
+.records{padding:1px 5px;font-size:14px;}
+.records .list .item{line-height:26px;}

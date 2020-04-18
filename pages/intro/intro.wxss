@@ -1,0 +1,10 @@
+.item-body{display:block;padding:8px;font-size:32rpx;}
+.project-title{color:#555;text-overflow:ellipsis;font-size:30rpx;font-family:PingFangSC-Medium;line-height:50rpx;}
+.project-title .link{color:#002cc4;white-space:initial;font-size:26rpx;}
+.project-title label{color:#aaa;}
+.project-title .back{float:right;color:#00f;}
+.chapterlist{margin-bottom:20px;}
+.chapterlist .m{color:#00f;font-size:32rpx;line-height:60rpx;}
+.chapter-sort{padding-top:36rpx;color:#002cc4;font-size:36rpx;}
+.chapter-sort .line{padding:0 20rpx;color:#ccc;}
+.fontweight{font-weight:600;}

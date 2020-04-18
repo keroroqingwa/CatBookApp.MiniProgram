@@ -1,0 +1,33 @@
+.userinfo{display:flex;flex-direction:column;align-items:center;}
+.userinfo-avatar{margin:20rpx;width:128rpx;height:128rpx;border-radius:50%;}
+.userinfo-nickname{color:#aaa;}
+.usermotto{margin-top:200px;}
+input{border:1px solid #ccc;}
+button::after{border-radius:unset;}
+.other-button-hover{background-color:#008300!important;color:rgba(255,255,255,.9)!important;}
+.input-search{float:left;padding:3px 5px 2px;width:71%;border-right:none;font-size:30rpx;}
+.input-btn{width:25%;border-bottom-left-radius:0;border-top-left-radius:0;font-size:31rpx!important;}
+page{display:block;min-height:100%;background-color:#fff;}
+.project-container{margin:0;}
+.project-item{overflow:hidden;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #efeff4;background-color:#fff;font-size:30rpx;}
+.project-item:last-child{margin-bottom:48rpx;border-bottom:none;}
+.item-head{overflow:hidden;padding:0 27rpx 0 0;height:80rpx;line-height:80rpx;}
+.post-title-before{float:left;overflow:hidden;margin-top:39rpx;width:36rpx;height:2rpx;background-color:#d38297;}
+.post-title{display:inline-block;box-sizing:border-box;padding:0 25rpx;height:50rpx;border-radius:50rpx;color:red;vertical-align:middle;text-decoration:underline;font-size:32rpx;line-height:50rpx;}
+.post-title:hover{background-color:#eee;}
+.project-img{float:left;padding-right:8px;padding-left:10px;width:96px;height:120px;}
+.project-img image{padding-top:5px;width:100%;height:100%;}
+.project-price{position:relative;top:24rpx;float:right;overflow:hidden;height:42rpx;color:#555;line-height:42rpx;}
+.item-body{padding:0 16rpx;min-height:120px;color:#6e6e70;font-size:30rpx;line-height:42rpx;}
+.project-title{overflow:hidden;color:#555;text-overflow:ellipsis;white-space:nowrap;font-size:30rpx;font-family:PingFangSC-Medium;line-height:50rpx;}
+.project-title .link{color:#002cc4;white-space:initial;font-size:26rpx;}
+.project-title .link:hover{background-color:#eee;}
+.project-price label,.project-title label{color:#aaa;}
+.project-desc{padding:15rpx 24rpx 5px 6rpx;min-height:30px;color:#aaa;text-overflow:ellipsis;line-height:45rpx;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-all;}
+.project-foot{overflow:hidden;padding:15rpx 0;color:#9e9e9e;font-size:24rpx;line-height:33rpx;}
+.bid-num{float:left;vertical-align:middle;line-height:28rpx;}
+.public-time{float:right;margin-right:10rpx;vertical-align:middle;line-height:28rpx;}
+.s-source{padding:10px 5px;color:#666;font-size:32rpx;}
+.s-source .tab{padding:0 5px;line-height:26px;}
+.s-source .tab.active{padding-bottom:0;border-bottom:2px solid green;color:green;font-weight:600;}
+.s-source .tab.active1{padding:3px 8px;border:1px solid green;border-radius:5px;color:green;opacity:.8;}

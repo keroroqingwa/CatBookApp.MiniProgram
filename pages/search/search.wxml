@@ -1,0 +1,57 @@
+<!--pages/book/search/index.wxml-->
+<import src="../template/book-item.wxml" />
+
+<view class="section" style="padding:5px 10px 0;">
+	<view class="section" style="width:100%;">
+		<form bindsubmit="formSubmit">
+			<input class="weui-search-bar__input input-search" maxlength="20" confirm-type="search" bindconfirm="confirmEvent" name="s_name" value="{{searchWord}}" placeholder="请输入书名或作者搜索" />
+			<button class="input-btn" type="primary" size="mini" hover-class="other-button-hover" formType="submit">搜索</button>
+		</form>
+		<!--<label style="font-size:14px;color:#aaa;">搜索到43个结果</label>-->
+	</view>
+
+	<block wx:if="{{true}}">
+		<view class="flex-wrp" style="height: 100px;flex-direction:column;">
+			<view class='s-source'>
+				<label>选择搜索来源:</label>
+				<block wx:for="{{bookCategoryList}}" wx:key="key" wx:for-item="obj">
+					<!-- <label class='tab {{obj.Active?"active":""}}' bindtap='SearchByRule' data-rule="{{obj.Value}}">{{obj.Key}}</label> -->
+					<label wx:if="{{obj.value == rule}}" class='tab active' bindtap='SearchByRule' data-rule="{{obj.value}}">{{obj.key}}</label>
+					<label wx:else class='tab' bindtap='SearchByRule' data-rule="{{obj.value}}">{{obj.key}}</label>
+				</block>
+				<!-- <label class='tab'>笔趣阁</label>
+        <label class='tab active'>顶点小说</label>
+        <label class='tab'>全本小说网</label>
+        <label class='tab'>书旗网</label>
+        <label class='tab'>言情小说吧</label>
+        <label class='tab'>古典文学网</label> -->
+			</view>
+			<view style='border-bottom: 1px solid #aaa;width: 50%;margin: 0 auto;opacity: .1;'></view>
+			<view class="project-container">
+				<scroll-view style="height: 100%;" lower-threshold="100" scroll-y="true">
+					<block wx:for="{{bookList}}" wx:key="id" wx:for-item="bookObj" wx:for-index="index">
+						<view class="project-item" bindtap="onRedirectToIntro" data-idx="{{index}}">
+							<template is="bookItem" data="{{bookObj}}" />
+						</view>
+					</block>
+				</scroll-view>
+
+				<block wx:if="{{isLastPn && !showFeedback}}">
+					<view class="classname" style="text-align: center;font-size: 30rpx;color: #ccc;padding-bottom:10px;">-- 到达地板啦 (*・ω・) --</view>
+				</block>
+
+			</view>
+		</view>
+
+	</block>
+
+	<block wx:if="{{showFeedback}}">
+		<view style='text-align:center;'>
+			<view style='color: #ccc;'>-- (ฅ´ω`ฅ) --</view>
+			<view style='padding-top:10px;'>没有找到你要的书</view>
+			<view style='padding-top:10px;'>你可以切换上方的搜索来源进行查找</view>
+			<!-- <view style='color:blue;text-decoration:underline;padding:20px;' bindtap='onRedirectToFeedback'>填写反馈信息</view> -->
+		</view>
+	</block>
+
+</view>

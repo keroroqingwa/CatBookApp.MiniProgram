@@ -1,0 +1,8 @@
+.userinfo{display:flex;min-height:228rpx;flex-direction:column;align-items:center;}
+.userinfo-avatar{overflow:hidden;margin:20rpx;width:64px;height:64px;min-width:128rpx;min-height:128rpx;border:1px solid #eee;border-radius:50%;background-color:#fff;background-image:url(https://book.somethingwhat.com/images/cat-avatar.png);}
+.userinfo-nickname{color:#aaa;}
+.usermotto{margin-top:200px;}
+.main{font-size:14px;}
+.main .item{padding:8px 10px;}
+.main .item>label{padding-right:10px;}
+.fa-angle-right{padding-left:5px;}

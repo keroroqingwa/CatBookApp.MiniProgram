@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/search/search",
+    "pages/intro/intro",
+    "pages/chapter/chapter",
+    "pages/user/index/index",
+    "pages/user/lastreading/lastreading",
+    "pages/user/message/message"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "喵喵看书",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

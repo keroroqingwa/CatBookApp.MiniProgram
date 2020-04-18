@@ -1,0 +1,115 @@
+<!--pages/book/chapter/index.wxml-->
+<scroll-view scroll-y="true" style="height:{{windowHeight}}px;background-color:{{personSetting.backgroundColor}};color:{{personSetting.fontColor}};font-family:{{personSetting.fontFamily}};" scroll-top="{{scrollTop}}" class='{{personSetting.dayOrNight}}' bindscroll='scrollHandler'>
+
+	<block wx:if="{{bookInfo.bookName}}">
+		<view class="title" style="{{css_font_color}}">【{{bookInfo.bookName||'喵喵看书'}}】 {{bookInfo.chapterName}}</view>
+		<!-- <view class="title" style="{{css_font_color}}">{{bookInfo.chapterName}}</view> -->
+	</block>
+
+	<!-- <block wx:if="{{tryAgain}}">
+		<view style='text-align: center;padding-top: 20%;line-height: 30px;'>
+			<view>加载内容失败...</view>
+			<view style='color:green;' bindtap='onReloadContent'>点击此处重新加载</view>
+		</view>
+	</block> -->
+
+	<block wx:if="{{isLoadSuccess}}">
+		<view class="t-chapter-select">
+			<label bindtap="bindPrevTap" hover-class="link-hover" data-link="{{bookInfo.prevChapterLink}}">上一章</label>
+			<label bindtap="bindChapterTap" hover-class="link-hover">目录</label>
+			<label bindtap="bindNextTap" hover-class="link-hover" data-link="{{bookInfo.nextChapterLink}}">下一章</label>
+		</view>
+	</block>
+
+	<block wx:if="{{bookInfo.number_Of_Words<=100}}">
+		<view class='fa fa-angle-right color-gray' style='font-size:12px;text-align:center;'> 此章节内容少于100个字，可能是数据来源站点的小编上传错了...</view>
+	</block>
+
+	<view class="body-view" bindtap="bindScrollTap" style="font-size:{{personSetting.fontSize}}px;">
+		<text style='text-indent: 20rpx;padding-left:0;'>{{bookInfo.content}}</text>
+	</view>
+
+	<block wx:if="{{isLoadSuccess}}">
+		<view class="t-chapter-select" style='padding-bottom:20px;'>
+			<label bindtap="bindPrevTap" hover-class="link-hover" data-link="{{bookInfo.prevChapterLink}}">上一章</label>
+			<label bindtap="bindChapterTap" hover-class="link-hover">目录</label>
+			<label bindtap="bindNextTap" hover-class="link-hover" data-link="{{bookInfo.nextChapterLink}}">下一章</label>
+			<view bindtap='onshowSetting' style='padding-top:10px;'>
+				<label class='fa fa-align-justify' style='padding:0;'>设置</label>
+				<label class='fa fa-align-justify' style='padding:0;'></label>
+			</view>
+		</view>
+	</block>
+
+</scroll-view>
+
+<!-- #底部设置 -->
+<view class='footer' wx:if="{{showSetting}}">
+	<view>
+		<navigator class='fa fa-home' url="../index/index" hover-class="navigator-hover" open-type='reLaunch'> 返回首页</navigator>
+	</view>
+	<view>
+		<navigator class='fa fa-user' url="../user/index/index" hover-class="navigator-hover"> 个人中心</navigator>
+	</view>
+	<view class='fa fa-font' bindtap='onshowFontSetting'> 字体&背景设置</view>
+</view>
+<!-- /底部设置 -->
+
+<!-- #偏好设置 -->
+<!-- <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view> -->
+<view class="modal-dialog" wx:if="{{showModal}}">
+	<!-- <label class='fa fa-close' style='font-size:26px;float:right;'></label> -->
+	<view class="modal-title">偏好设置</view>
+	<view class="modal-content">
+		<scroll-view scroll-y="true" style='height:650rpx;'>
+			<view>
+				<view class='fa fa-sun-o'>
+					<label class='fa fa-moon-o'></label> 快速切换日夜间模式</view>
+				<switch bindchange="switchDayNightChange" />
+			</view>
+
+			<view>
+				<view class='fa fa-sun-o'> 屏幕常亮</view>
+				<switch bindchange="switchKeepScreenOnChange" checked='{{personSetting.keepScreenOn}}' />
+			</view>
+
+			<view>
+				<view class='fa fa-font'> 字体大小</view>
+				<slider bindchange="sliderFontSizechange" bindchanging='sliderFontSizechanging' min="8" max="28" value='{{personSetting.fontSize}}' show-value />
+			</view>
+
+			<view>
+				<view class='fa fa-check-square'> 背景色</view>
+				<view class="group">
+					<block wx:for="{{personSetting.iconBgColor}}" wx:key='key'>
+						<icon type="success" size="40" color="{{item}}" bindtap='onbackgroundChange' data-color='{{item}}' />
+					</block>
+				</view>
+			</view>
+
+			<view>
+				<view class='fa fa-check-square'> 字体颜色</view>
+				<view class="group">
+					<block wx:for="{{personSetting.iconFontColor}}" wx:key='key'>
+						<icon type="info" size="40" color="{{item}}" bindtap='onFontColorChange' data-color='{{item}}' />
+					</block>
+				</view>
+			</view>
+
+			<view>
+        <view class='fa fa-font'> 字体（部分手机不支持）</view>
+        <view class="group">
+          <block wx:for="{{personSetting.fontFamilySelect}}" wx:key='key'>
+            <button size="mini" bindtap="tap" type='primary' bindtap='onFontFamilyChange' data-fontfamily='{{item.key}}' style='font-family:{{item.key}};'>{{item.text}}</button>
+          </block>
+        </view>
+      </view>
+
+		</scroll-view>
+	</view>
+	<view class="modal-footer">
+		<view class="btn-cancel" bindtap="onCancelSetting">取消</view>
+		<view class="btn-confirm" bindtap="onSaveSetting">保存设置</view>
+	</view>
+</view>
+<!-- /偏好设置 -->

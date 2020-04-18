@@ -1,0 +1,6 @@
+/* pages/login/login.wxss */
+
+.container {
+  padding: 200rpx 0;
+  height: auto;
+}

@@ -1,0 +1,30 @@
+page{line-height:1.6em;}
+.fa{font-size:32rpx;}
+.title{text-align:center;font-weight:700;}
+.t-chapter-select{padding:10px 0;text-align:center;}
+.t-chapter-select label{padding:2px 10px;}
+.body-view{padding:0 8px;min-height:400px;}
+.t-chapter-select>label{text-decoration:underline;}
+.middle{position:fixed;top:20%;left:10%;width:80%;height:60%;border-radius:5px;background-color:#000;color:#fff;opacity:.5;}
+.footer{position:fixed;bottom:0;left:0;z-index:9999;width:100%;background:#f9f9f9;color:#009a61;text-align:center;line-height:36px;opacity:.9;}
+.footer>view{border-top:1px solid #ddd;}
+.footer .fa{font-size:32rpx;}
+.show-btn{margin-top:100rpx;color:#2c2;}
+.modal-mask{position:fixed;top:0;left:0;z-index:9000;overflow:hidden;width:100%;height:100%;background:#000;color:#fff;opacity:.5;}
+.modal-dialog{position:fixed;top:25%;left:0;z-index:9999;overflow:hidden;margin:-180rpx 105rpx;width:540rpx;border:1px solid #eee;border-radius:36rpx;background:#f9f9f9;opacity:.9;}
+.modal-title{padding-top:50rpx;color:#030303;text-align:center;font-size:36rpx;}
+.modal-content{padding:0 2px;}
+.modal-content>scroll-view{padding:30rpx 32rpx;}
+.modal-content>view{padding:0 0 10px;}
+.modal-content view{color:#333;font-size:14px;}
+.modal-input{display:flex;border:2rpx solid #ddd;border-radius:4rpx;background:#fff;font-size:28rpx;}
+.input{box-sizing:border-box;padding:0 20rpx;width:100%;height:82rpx;color:#333;font-size:28rpx;line-height:28rpx;}
+input-holder{color:#666;font-size:28rpx;}
+.modal-footer{display:flex;height:86rpx;border-top:1px solid #dedede;font-size:34rpx;line-height:86rpx;flex-direction:row;}
+.btn-cancel{width:50%;border-right:1px solid #dedede;background-color:#dedede;color:#666;text-align:center;}
+.btn-confirm{width:50%;background-color:#efefef;color:green;text-align:center;}
+slider{margin:2px 0;}
+.daytime{background-color:#fff;color:#000;}
+.nighttime{background-color:#000;color:#fff;}
+icon,slider,switch{transform:scale(.8);}
+.modal-content .group button{margin-right:5px;line-height:28px;margin-bottom:5px;}

@@ -1,0 +1,13 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+	<view bindtap="onRedirectToUserPage" style="text-align: center;">
+		<cover-image src="https://book.somethingwhat.com/images/cat-avatar.png"></cover-image>
+		<text class="userinfo-nickname">「喵喵看书」</text>
+	</view>
+	<view style="line-height: 50px;">
+		<text style="color:#aaa;">您需要授权后才能进行操作哦~</text>
+		<button class="weui-btn" type="primary" open-type="getUserInfo" bindgetuserinfo="auth">
+			<text class="fa fa-normal">微信授权登录</text>
+		</button>
+	</view>
+</view>

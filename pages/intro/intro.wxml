@@ -1,0 +1,45 @@
+<!--pages/book/intro/index.wxml-->
+<block wx:if="{{bookInfo.bookName}}">
+	<view class="item-body" style="display:{{style_display}}">
+		<view class="project-title">
+			<label style="color:#ff0000;font-size:42rpx;font-weight:600;">{{bookInfo.bookName}}</label>
+			<!-- <block wx:if="{{showCollection}}">
+				<lable class="back" style='transform:scale(0.6);font-size:22rpx;'>
+					<switch checked='{{checked}}' bindchange="switch2Change" />收藏</lable>
+			</block> -->
+		</view>
+		<view class="project-title">作者：
+			<label style="color:#ff0000;">{{bookInfo.author}}</label>
+		</view>
+		<view class="project-title">分类：
+			<label>{{bookClassify}}</label>
+		</view>
+		<view class="project-title">状态：
+			<label>{{bookInfo.status}}</label>
+		</view>
+		<view class="project-title">最后更新
+			<label>{{bookInfo.last_Update_Time}}</label>
+		</view>
+		<view class="project-title">最新章节：
+			<label class="link" hover-class="link-hover" bindtap="onRedirectToChapter" data-chapterlink="{{bookInfo.last_Update_ChapterLink}}" data-chaptername='{{bookInfo.last_Update_ChapterName}}' style="font-size:32rpx;">{{bookInfo.last_Update_ChapterName}}</label>
+		</view>
+		<!-- <view class="project-title fontweight">上次阅读至：
+			<label class="link" hover-class="link-hover" bindtap="onRedirectToChapter" data-chapterlink="{{bookInfo.last_Reading_ChapterLink||''}}" data-chaptername='{{bookInfo.last_Reading_ChapterName}}' style="font-size:32rpx;">{{bookInfo.last_Reading_ChapterName||'--'}}</label>
+		</view> -->
+		<view class="project-title">介绍：
+			<label>{{bookInfo.intro}}</label>
+		</view>
+		<view class='chapter-sort'>
+			<label bindtap='changeChaptersSort' data-sort='asc' class="{{curSort=='asc'&&'fontweight'}}">↓正序</label>
+			<label class='line'>|</label>
+			<label bindtap='changeChaptersSort' data-sort='desc' class="{{curSort=='desc'&&'fontweight'}}">倒序↑</label>
+		</view>
+		<view style="border-top: 1px dashed #efefef;margin: 12px auto;width: 70%;"></view>
+		<view class="chapterlist">
+			<block wx:for="{{bookInfo.chapterlist}}" wx:key="id" wx:for-item="bookObj">
+				<view class="m" hover-class="link-hover" bindtap="onRedirectToChapter" data-chapterlink="{{bookObj.chapterLink}}" data-chaptername='{{bookObj.chapterName}}'>{{bookObj.chapterName}}</view>
+			</block>
+		</view>
+		<view class="classname" style="text-align: center;font-size: 30rpx;color: #ccc;">-- 没有啦 (*・ω・) --</view>
+	</view>
+</block>

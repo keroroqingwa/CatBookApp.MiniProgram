@@ -1,0 +1,16 @@
+<!--pages/user/message/index.wxml-->
+<view class='records'>
+	<block wx:if="{{messages == null || messages.length==0}}">
+		<view style="padding:10% 20%;line-height:26px;">
+			<view style="font-size:30p;font-weight:bold;">关于「喵喵看书」小程序的说明：\n</view>
+			<view style="text-indent:2em;">这个小程序一直都是个人开发者开发和维护的，作者本身也是一个书虫，开发这个小程序的初衷是为了方便自己看小说。。。\n</view>
+			<view style="text-indent:2em;">本小程序没有充值，没有广告，也就是没有收入来源的。作者没什么钱，服务器买不到好的配置，所以可能会因为服务器资源问题导致小程序体验不佳，见谅~\n</view>
+			<view style="text-indent:2em;">如果你对本小程序有什么意见或建议，可以加私人微信号：<text style="color:#000;font-weight:bold;">keroroqingwa</text></view>
+		</view>
+	</block>
+	<block wx:if="{{messages.length>0}}">
+		<view class='list' wx:for="{{messages}}" wx:key="key">
+			<view class='item'>【{{item.Create_Time}}】{{item.Content}}</view>
+		</view>
+	</block>
+</view>

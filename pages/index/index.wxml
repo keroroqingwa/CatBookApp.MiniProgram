@@ -1,0 +1,38 @@
+<view class="container">
+	<view class="userinfo" bindtap="onRedirectToUserPage">
+		<open-data type="userAvatarUrl" class="userinfo-avatar" background-size="cover" animation="{{animation}}"></open-data>
+		<text class="userinfo-nickname">个人中心</text>
+	</view>
+	<!-- 个人中心 -->
+	<view class="section" style="width:95%;">
+		<form bindsubmit="formSubmit">
+			<input class="input-search" maxlength="20" confirm-type="search" bindconfirm="confirmEvent" name="s_name" placeholder="请输入书名或作者搜索" />
+			<button class="input-btn" type="primary" size="mini" hover-class="other-button-hover" formType="submit">搜索</button>
+		</form>
+	</view>
+	<!-- 搜索 -->
+	<button class="btn-contact" open-type="contact" hover-class="btn-contact-hover">呼叫喵喵</button>
+	<!-- 客服 -->
+	<block wx:if="{{bookReadRecordList.length>0}}">
+		<view class="footer">
+			<label>最近阅读:</label>
+			<label class="clear"></label>
+			<view class="classname">
+				<block wx:for="{{bookReadRecordList}}" wx:key="key">
+					<view class="item" bindtap='onRedirectToBookChapter' data-id='{{item.id}}'>
+						<label class="b-n">【{{item.bookName}}】</label>
+						<view style='color:blue;'>{{item.chapterName}}</view>
+					</view>
+				</block>
+			</view>
+		</view>
+	</block>
+	<block wx:if="{{bookReadRecordLoading}}">
+		<view class='footer' style='bottom: 30px;'>
+			<view>最近阅读:</view>
+			<view class="clear" style='color:green;'>数据获取中......</view>
+		</view>
+	</block>
+	<view style='position:fixed;bottom:3px;font-size:30rpx;color:green;font-weight:bold;padding-left:2px;width:100%;'>本程序的内容来自第三方网站，如有侵权，请联系喵喵</view>
+	<!-- 最近阅读 -->
+</view>

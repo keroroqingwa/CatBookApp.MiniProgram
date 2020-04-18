@@ -1,0 +1,69 @@
+<!--pages/user/index.wxml-->
+<view class="main" style="width:100%;">
+	<view class="item" style="background-color:#f9fefe;">
+		<view class="userinfo">
+			<open-data type="userAvatarUrl" class="userinfo-avatar" background-size="cover" animation="{{animation}}"></open-data>
+			<text class="userinfo-nickname">{{userInfo.nickName}} - 个人中心</text>
+		</view>
+	</view>
+</view>
+
+<!-- home switcher -->
+<view class="main" style="width:100%;">
+
+	<view class="item line-top" bindtap="onRedirectToAccount">
+		<label>账号</label>
+		<text class='color-gray font-sm'>ID: {{userInfo.userId}}</text>
+	</view>
+
+	<view class="item line-top">
+		<label>阅读时长</label>
+		<text class='color-gray font-sm' style="float:right">{{readRecordSummary.readTime}}</text>
+	</view>
+
+	<view class="item line-top">
+		<label>阅读记录</label>
+		<view class="color-gray font-sm" style="float:right">
+			<text>共{{readRecordSummary.bookCount}}本书{{readRecordSummary.chapterCount}}章节</text>
+			<!-- <text class='fa fa-angle-right color-green'></text> -->
+		</view>
+	</view>
+
+	<view class="item line-top" bindtap="onRedirectToLastReading">
+		<label>最近阅读</label>
+		<view class="color-gray font-sm" style="float:right">
+			<!--<text>{{bookCollectionCount}}本</text>-->
+			<text class='fa fa-angle-right color-green'></text>
+		</view>
+	</view>
+
+	<view class="item line-top" bindtap='onRedirectToMessage'>
+		<label>系统信息</label>
+		<view class="color-gray font-sm" style="float:right">
+			<text class='fa fa-angle-right color-green'></text>
+		</view>
+	</view>
+
+	<view class="item line-top">
+		<text decode="true">&nbsp;</text>
+	</view>
+
+	<view class="item line-top" style="padding:0px 0px;">
+		<!-- <label>打卡趣</label>
+    <view class="color-gray font-sm" style="float:right">
+      <text class='fa fa-angle-right color-green'></text>
+    </view> -->
+		<navigator target="miniProgram" open-type="navigate" app-id="wx8fdda377945f70d1" style="padding:8px 10px;">
+			<label>打卡趣</label>
+			<view class="color-gray font-sm" style="float:right">
+				<text class='fa fa-angle-right color-green'></text>
+			</view>
+		</navigator>
+
+	</view>
+
+	<view class="item line-top"></view>
+
+	<navigator style='text-align:center;color:blue;text-decoration:underline;' url="../../index/index" open-type='reLaunch'>返回首页</navigator>
+
+</view>

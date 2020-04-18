@@ -1,0 +1,21 @@
+<!--pages/user/lastreading/index.wxml-->
+<view style='text-align:center;width:100%;padding:15px 0 10px;color:#ccc;'>
+	<text style="color:#333;">最近阅读的小说记录</text>
+	<view style='width:100%;color:#eee'>-- 共 {{bookCount}} 本 --</view>
+</view>
+
+<block wx:if="{{booklist != null && booklist.length >=0 }}">
+	<view class="main" style="width:100%;">
+		<view class="item line-top" wx:for="{{booklist}}" wx:key="key" bindtap='onRedirectToBookIntro' data-id='{{item.id}}'>
+			<label class='color-green'>【{{item.bookName}}】{{item.chapterName}}</label>
+			<text class='color-gray font-sm' style="float:right">{{item.time}}</text>
+		</view>
+		<view class="item line-top"></view>
+		<view style='display:{{showLoadMoreBtn?"":"none"}};'>
+			<button class='btn-loadmore' bindtap='onLoadMore'>加载更多</button>
+		</view>
+	</view>
+</block>
+<block wx:if="{{isLoadSuccessed && (booklist == null || booklist.length==0)}}">
+	<view class='color-gray' style='text-align:center;'>-- 没有阅读过什么 (*・ω・) --</view>
+</block>
