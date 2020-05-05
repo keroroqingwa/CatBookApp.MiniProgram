@@ -14,7 +14,7 @@ const config = {
     imageUrl: 'https://book.somethingwhat.com/images/cat-avatar.png'
   },
   // 版本号，方便更新本地缓存
-  version: '3.0.2' //版本号
+  version: '3.0.6' //版本号
 }
 
 export default config;

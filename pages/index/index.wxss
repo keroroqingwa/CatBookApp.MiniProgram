@@ -13,3 +13,4 @@
 .footer .b-n{color:#000;}
 .footer navigator{float:left;color:#00f;text-decoration:underline;}
 .footer .item{clear:both;line-height:50rpx;}
+.footer .nocontent{clear:both;padding-bottom:20px;color:#00f;font-weight:bold;text-decoration:underline;}

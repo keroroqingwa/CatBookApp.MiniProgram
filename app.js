@@ -53,7 +53,9 @@ App({
       // openid
       openid: `mmbook_storage_user_openid_${config.version}`,
       // 用户偏好
-      userpreference: `mmbook_storage_user_preference_${config.version}`
+      userpreference: `mmbook_storage_user_preference_${config.version}`,
+      // 记录上一页面的页面路径
+      prevPageRoute: `mmbook_storage_prevPageRoute_${config.version}`,
     }
   }
 })

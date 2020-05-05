@@ -21,7 +21,35 @@ Page({
       })
       this.loadBookReadRecord(this.data.openid)
     }
+    // 有时用户从chapter页面返回时，因为用户阅读记录在服务器还没处理完成，此时会造成用户在首页看不到最近阅读的那一章书，所以这里加个定时器，再请求一次
+    const prevPageRoute = wx.getStorageSync(storageKeys.prevPageRoute)
+    if (prevPageRoute === 'pages/chapter/chapter') {
+      setTimeout(() => {
+        this.loadBookReadRecord(this.data.openid)
+      }, 1000 * 2);
+    }
   },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    wx.setStorage({
+      key: storageKeys.prevPageRoute,
+      data: getCurrentPages()[getCurrentPages().length - 1].route
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    wx.setStorage({
+      key: storageKeys.prevPageRoute,
+      data: getCurrentPages()[getCurrentPages().length - 1].route
+    })
+  },
+
   /**
    * 用户点击右上角分享
    */
@@ -107,4 +135,10 @@ Page({
       url: `../chapter/chapter?bookReadRecordId=${id}`
     })
   },
+  // 登录页
+  onRedirectToLogin: function () {
+    wx.navigateTo({
+      url: '../login/login',
+    })
+  }
 })

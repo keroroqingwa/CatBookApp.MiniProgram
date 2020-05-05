@@ -17,7 +17,7 @@
 		<view class="footer">
 			<label>最近阅读:</label>
 			<label class="clear"></label>
-			<view class="classname">
+			<view>
 				<block wx:for="{{bookReadRecordList}}" wx:key="key">
 					<view class="item" bindtap='onRedirectToBookChapter' data-id='{{item.id}}'>
 						<label class="b-n">【{{item.bookName}}】</label>
@@ -27,12 +27,21 @@
 			</view>
 		</view>
 	</block>
+	<block wx:else>
+		<view class="footer" bindtap="onRedirectToLogin">
+			<label>最近阅读:</label>
+			<label class="clear"></label>
+			<view>
+				<label class="nocontent">点击登录后查看</label>
+			</view>
+		</view>
+	</block>
 	<block wx:if="{{bookReadRecordLoading}}">
 		<view class='footer' style='bottom: 30px;'>
 			<view>最近阅读:</view>
 			<view class="clear" style='color:green;'>数据获取中......</view>
 		</view>
 	</block>
-	<view style='position:fixed;bottom:3px;font-size:30rpx;color:green;font-weight:bold;padding-left:2px;width:100%;'>本程序的内容来自第三方网站，如有侵权，请联系喵喵</view>
+	<view style='position:fixed;bottom:3px;font-size:30rpx;color:gray;font-weight:bold;padding-left:2px;width:100%;'>本程序的内容来自第三方网站，如有侵权，请联系喵喵</view>
 	<!-- 最近阅读 -->
 </view>

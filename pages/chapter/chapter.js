@@ -44,7 +44,7 @@ Page({
         ],
         //字体色选项
         fontFamilySelect: [
-          {key: 'Microsoft YaHei', text: '微软雅黑'},{key: 'cursive', text: '草书字体'},{key: 'serif', text: '有衬线字体'}
+          { key: 'Microsoft YaHei', text: '微软雅黑' }, { key: 'cursive', text: '草书字体' }, { key: 'serif', text: '有衬线字体' }
         ],
         dayOrNight: 'daytime', //日夜模式切换
         keepScreenOn: false, //是否屏幕常亮
@@ -111,7 +111,7 @@ Page({
   onShow: function () {
     let that = this
     if (!that.isWechatAuth()) return false
-    that.initLoad()
+    if (!that.data.isLoadSuccess) that.initLoad()
   },
 
   /**
@@ -121,6 +121,10 @@ Page({
     this.setData({
       isPageOnShow: false
     })
+    wx.setStorage({
+      key: storageKeys.prevPageRoute,
+      data: getCurrentPages()[getCurrentPages().length - 1].route
+    })
   },
 
   /**
@@ -129,6 +133,10 @@ Page({
   onUnload: function () {
     this.setData({
       isPageOnShow: false
+    })
+    wx.setStorage({
+      key: storageKeys.prevPageRoute,
+      data: getCurrentPages()[getCurrentPages().length - 1].route
     })
   },
 
@@ -393,10 +401,11 @@ Page({
     //console.info('bindScrollTap', e);
     let that = this
     let clientY = e.touches[0].clientY;
+    const toleranceY = 30;
     if (clientY < this.data.windowHeight / 3) {
       //上
       this.setData({
-        scrollTop: this.data.scrollTopByScrolling - this.data.windowHeight,
+        scrollTop: this.data.scrollTopByScrolling - this.data.windowHeight + toleranceY,
       })
     } else if (clientY > this.data.windowHeight / 3 && clientY < this.data.windowHeight / 3 * 2) {
       //中
@@ -406,7 +415,7 @@ Page({
     } else {
       //下
       this.setData({
-        scrollTop: this.data.scrollTopByScrolling + this.data.windowHeight
+        scrollTop: this.data.scrollTopByScrolling + this.data.windowHeight - toleranceY
       })
     }
   },
@@ -689,7 +698,7 @@ Page({
           id: this.data.bookReadRecordId,
           seconds: this.uploadTimeInterval
         },
-        success(res) {}
+        success(res) { }
       })
   },
   //////////////////////////////////// 上传阅读时长 end ////////////////////////////////////

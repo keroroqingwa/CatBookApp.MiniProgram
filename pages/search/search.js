@@ -168,7 +168,7 @@ Page({
           })
         }
         //没有搜索到书本
-        if (pn == 1 && data.length == 0) {
+        if (pn == 1 && (data == undefined || data.length == 0)) {
           that.setData({
             showFeedback: true
           })
