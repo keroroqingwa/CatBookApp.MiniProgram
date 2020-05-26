@@ -1,4 +1,5 @@
 // pages/login/login.js
+import config from '../../constants/config.js';
 const app = getApp()
 const remoteApiUrl = app.globalData.remoteApiUrl
 const storageKeys = app.globalData.storageKeys
@@ -99,7 +100,8 @@ Page({
           wx.request({
             url: remoteApiUrl.wechat.jscode2session,
             data: {
-              code: res.code
+              code: res.code,
+              appid: config.appid
             },
             success: res => {
               const {
