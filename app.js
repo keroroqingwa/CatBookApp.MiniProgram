@@ -27,7 +27,9 @@ App({
         // 获取数据
         get: `${config.apiDomain}/api/BookReadRecord/Get`,
         // 书本阅读记录汇总信息
-        getBookReadRecordSummary: `${config.apiDomain}/api/BookReadRecord/GetBookReadRecordSummary`
+        getBookReadRecordSummary: `${config.apiDomain}/api/BookReadRecord/GetBookReadRecordSummary`,
+        // 设置在小程序首页中 隐藏/显示 当前阅读记录
+        setHideByHomePage: `${config.apiDomain}/api/BookReadRecord/SetHideByHomePage`
       },
       // 书本搜索
       bookSearch: {

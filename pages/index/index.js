@@ -11,7 +11,7 @@ Page({
     bookReadRecordList: [],
     bookReadRecordLoading: false,
   },
-  onLoad: function () {},
+  onLoad: function () { },
   onShow: function () {
     // 不写在onLoad方法中，因为授权登录跳转后需要重新刷新页面变量[openid]
     const openid = wx.getStorageSync(storageKeys.openid)
@@ -102,7 +102,8 @@ Page({
     wx.request({
       url: remoteApiUrl.bookReadRecord.getPagedByLastReading,
       data: {
-        openid
+        openid,
+        isHideByHomePage: false
       },
       success(res) {
         console.info('获取最近阅读记录', res.data)
@@ -133,6 +134,41 @@ Page({
     let id = encodeURIComponent(e.currentTarget.dataset.id)
     wx.navigateTo({
       url: `../chapter/chapter?bookReadRecordId=${id}`
+    })
+  },
+  // 长按阅读记录可以隐藏小说记录
+  onLongTap: function (e) {
+    let that = this
+    let reportId = encodeURIComponent(e.currentTarget.dataset.reportid)
+    const curTapBook = that.data.bookReadRecordList.filter(w => w.reportId == reportId)[0]
+    const params = {
+      reportId,
+      isHide: true
+    }
+    wx.showModal({
+      title: '提示',
+      content: `是否隐藏【${curTapBook.bookName}】阅读记录？`,
+      success(res) {
+        if (res.confirm) {
+          wx.request({
+            url: remoteApiUrl.bookReadRecord.setHideByHomePage,
+            data: params,
+            method: 'get',
+            success(res) {
+              const {
+                code,
+                data,
+                msg
+              } = res.data
+              if (code == 0) {
+                that.loadBookReadRecord(that.data.openid)
+              }
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     })
   },
   // 登录页

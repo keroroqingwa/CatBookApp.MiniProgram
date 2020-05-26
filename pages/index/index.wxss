@@ -1,6 +1,6 @@
 .container{padding:200rpx 0;height:auto;}
 .userinfo{display:flex;margin-bottom:15px;min-height:228rpx;flex-direction:column;align-items:center;}
-.userinfo-avatar{overflow:hidden;margin:20rpx;width:64px;height:64px;min-width:128rpx;min-height:128rpx;border:1px solid #eee;border-radius:50%;background-color:#fff;background-image:url(https://book.somethingwhat.com/images/cat-avatar.png);}
+.userinfo-avatar{overflow:hidden;margin:20rpx;width:64px;height:64px;min-width:128rpx;min-height:128rpx;border:1px solid #eee;border-radius:50%;background-color:#fff;background-image:url(https://v3.admin.book.somethingwhat.com/images/cat-avatar.png);}
 .userinfo-nickname{color:#00f;text-decoration:underline;}
 .usermotto{margin-top:200px;}
 .input-search{float:left;margin-left:5px;padding:3px 5px 2px;width:75%;border:1px solid #ccc;border-right:none;font-size:14px;}

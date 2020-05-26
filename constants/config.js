@@ -11,7 +11,7 @@ const config = {
   share: {
     title: '喵喵看书 - 来自一条书虫的分享',
     path: '/pages/index/index',
-    imageUrl: 'https://book.somethingwhat.com/images/cat-avatar.png'
+    imageUrl: 'https://v3.admin.book.somethingwhat.com/images/cat-avatar.png'
   },
   // 版本号，方便更新本地缓存
   version: '3.0.6' //版本号

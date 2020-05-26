@@ -7,7 +7,7 @@
     </view>
   </view>
   <view class="project-img">
-    <image src="{{bookObj.coverImage || 'https://book.somethingwhat.com/images/wgwx_book.png'}}"></image>
+    <image src="{{bookObj.coverImage || 'https://v3.admin.book.somethingwhat.com/images/wgwx_book.png'}}"></image>
   </view>
   <view class="item-body">
     <view class="project-title">类型：

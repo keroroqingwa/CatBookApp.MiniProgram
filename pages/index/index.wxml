@@ -11,15 +11,15 @@
 		</form>
 	</view>
 	<!-- 搜索 -->
-	<button class="btn-contact" open-type="contact" hover-class="btn-contact-hover">呼叫喵喵</button>
+	<button class="btn-contact" open-type="contact" hover-class="btn-contact-hover">提意见&建议</button>
 	<!-- 客服 -->
 	<block wx:if="{{bookReadRecordList.length>0}}">
 		<view class="footer">
-			<label>最近阅读:</label>
+			<label>最近阅读（长按可以隐藏记录）:</label>
 			<label class="clear"></label>
 			<view>
 				<block wx:for="{{bookReadRecordList}}" wx:key="key">
-					<view class="item" bindtap='onRedirectToBookChapter' data-id='{{item.id}}'>
+					<view class="item" bindtap='onRedirectToBookChapter' bindlongpress="onLongTap" data-id='{{item.id}}' data-reportid='{{item.reportId}}'>
 						<label class="b-n">【{{item.bookName}}】</label>
 						<view style='color:blue;'>{{item.chapterName}}</view>
 					</view>
@@ -27,7 +27,7 @@
 			</view>
 		</view>
 	</block>
-	<block wx:else>
+	<block wx:if="{{openid == ''}}">
 		<view class="footer" bindtap="onRedirectToLogin">
 			<label>最近阅读:</label>
 			<label class="clear"></label>
@@ -38,7 +38,7 @@
 	</block>
 	<block wx:if="{{bookReadRecordLoading}}">
 		<view class='footer' style='bottom: 30px;'>
-			<view>最近阅读:</view>
+			<!-- <view>最近阅读:</view> -->
 			<view class="clear" style='color:green;'>数据获取中......</view>
 		</view>
 	</block>
